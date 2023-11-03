@@ -60,9 +60,10 @@ response = requests.get(url)
 if response.status_code == 200:
     labels = response.text.split('\n')
     print(labels)
-    processImage(
-        "https://versatilevats.com/squarehub/glitch/chamanrock145-Lawnmover.jpeg",
-        labels
-    )
+    return labels
+    # processImage(
+    #     "https://versatilevats.com/squarehub/glitch/chamanrock145-Lawnmover.jpeg",
+    #     labels
+    # )
 else:
     print("Error while fetching the labels")
