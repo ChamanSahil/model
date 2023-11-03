@@ -71,3 +71,6 @@ def build():
     # )
 # else:
 #     print("Error while fetching the labels")
+
+if __name__ == '__main__':
+    app.run()
