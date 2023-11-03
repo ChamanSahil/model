@@ -14,8 +14,8 @@
 # from pathlib import Path
 # from PIL import Image
 
-# from flask import Flask, request, render_template, jsonify
-# app = Flask(__name__, static_folder='', template_folder='')
+from flask import Flask, request, render_template, jsonify
+app = Flask(__name__, static_folder='', template_folder='')
 
 # urlretrieve(
 #     "https://raw.githubusercontent.com/openvinotoolkit/openvino_notebooks/main/notebooks/228-clip-zero-shot-image-classification/visualize.py",
