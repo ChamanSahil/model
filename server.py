@@ -24,7 +24,7 @@ urlretrieve(
 
 @app.route('/')
 def build():
-    sample_path = Path("data/coco.jpg")
+    sample_path = Path("coco.jpg")
     sample_path.parent.mkdir(parents=True, exist_ok=True)
     urlretrieve(
         imgURL,
