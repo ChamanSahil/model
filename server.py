@@ -1,4 +1,6 @@
 import gradio
+import requests
+import numpy as np
 from openvino import inference_engine as ie
 from openvino.inference_engine import IECore
 from transformers import CLIPProcessor, CLIPModel, pipeline
@@ -8,22 +10,20 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch16")
 # load preprocessor for model input
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch16")
 
-import numpy as np
-
 from urllib.request import urlretrieve
 from pathlib import Path
-
 from PIL import Image
 
-import requests
+from flask import Flask, request, render_template, jsonify
+app = Flask(__name__, static_folder='', template_folder='')
 
 urlretrieve(
     "https://raw.githubusercontent.com/openvinotoolkit/openvino_notebooks/main/notebooks/228-clip-zero-shot-image-classification/visualize.py",
     filename='visualize.py'
 )
-# from visualize import visualize_result
 
-def processImage(imgURL, labels):
+@app.route('/')
+def build():
     sample_path = Path("data/coco.jpg")
     sample_path.parent.mkdir(parents=True, exist_ok=True)
     urlretrieve(
@@ -52,7 +52,7 @@ def processImage(imgURL, labels):
     sorted_label_to_value = dict(sorted(label_to_value.items(), key=lambda item: item[1], reverse= True))
     first_3_results = dict(list(sorted_label_to_value.items())[:3])
     print(first_3_results)
-    # visualize_result(image, input_labels, probs[0])
+    return first_3_results
     
 url = 'https://versatilevats.com/openshift/labels.txt'
 response = requests.get(url)
