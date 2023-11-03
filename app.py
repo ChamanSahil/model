@@ -5,17 +5,7 @@ DREAMS = ['I am going to win this event nad prove myself']
 
 @app.route('/')
 def build():
-    if response.status_code == 200:
-        labels = response.text.split('\n')
-        print(labels)
-        res = processImage(
-            "https://versatilevats.com/squarehub/glitch/chamanrock145-Lawnmover.jpeg",
-            labels
-        )
-        return res
-    else:
-        print("Error while fetching the labels")
-        return "Error while fetching the labels"
+    return "In the basic route"
   
 @app.route('/dreams')
 def dreams():
