@@ -1,3 +1,6 @@
+# gradio
+# openvino>=2023.1.0
+# transformers[torch]>=4.30
 import gradio
 from openvino import inference_engine as ie
 from openvino.inference_engine import IECore
