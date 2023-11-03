@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template, jsonify
-app = Flask(__name__, static_folder='', template_folder='')
+app = Flask(__name)
 
 DREAMS = ['India is the best']
+print("Setting up things")
 
 @app.route('/')
 def build():
