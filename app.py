@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify
 app = Flask(__name__)
-print(__name__)
+app.debug = True
+
 DREAMS = ['India is the best']
 print("Setting up things")
 
