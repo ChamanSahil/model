@@ -22,9 +22,12 @@ app = Flask(__name__, static_folder='', template_folder='')
 #     filename='visualize.py'
 # )
 
+print("First one")
+
 @app.route('/')
 def build():
-    return "Wroking"
+    print("Insid the ROUTE")
+    return "Working"
     # sample_path = Path("coco.jpg")
     # sample_path.parent.mkdir(parents=True, exist_ok=True)
     # urlretrieve(
