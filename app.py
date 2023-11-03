@@ -1,3 +1,8 @@
+from flask import Flask
+app = Flask(__name__)
+
+DREAMS = ['I am going to win this event nad prove myself']
+
 @app.route('/')
 def build():
     if response.status_code == 200:
